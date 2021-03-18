@@ -25,9 +25,20 @@ services:
       - ./packages/react-app/:/app
       - /app/node_modules
 
-  postgres:
-    image: postgres:13.1
+  mysql:
+    image: mysql
+    command: 
+      - --default-authentication-plugin=mysql_native_password
     environment:
-      POSTGRES_PASSWORD: example
+      MYSQL_ROOT_PASSWORD: example
+    #volumes: 
+      #- ./init.sql:/data/application/init.sql
+      # - "./mysql:/var/lib/mysql"
+      #- "./init.sql:/docker-entrypoint-initdb.d"
     ports:
-     - 5432:5432
+     - 3306:3306 
+
+      # links:
+      # - "mongo:mongo.openconceptlab.org"
+      # - "solr:solr.openconceptlab.org"
+      # - "some-service:some-alias"

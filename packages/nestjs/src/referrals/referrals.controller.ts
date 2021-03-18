@@ -8,8 +8,8 @@ export class ReferralsController {
   constructor(private readonly referralsService: ReferralsService) {}
 
   @Post()
-  create(@Body() createReferralDto: CreateReferralDto) {
-    return this.referralsService.create(createReferralDto);
+  create(@Body() referral: CreateReferralDto) {
+    return this.referralsService.create(referral);
   }
 
   @Get()
@@ -23,8 +23,8 @@ export class ReferralsController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateReferralDto: UpdateReferralDto) {
-    return this.referralsService.update(+id, updateReferralDto);
+  update(@Param('id') id: string, @Body() referral: UpdateReferralDto) {
+    return this.referralsService.update(+id, referral);
   }
 
   @Delete(':id')
