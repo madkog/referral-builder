@@ -13,12 +13,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
             database: process.env.MYSQLDATABASE,
             synchronize: true,
             autoLoadEntities: true,
-            // migrations: ["./src/migrations/*{.ts,.js}"],
-            // migrationsTableName: "migrations_typeorm",
-            // migrationsRun: true,
-            // cli: {
-            //     migrationsDir: "./src/migrations"
-            // }
+            migrations: ["./src/migrations/*{.ts,.js}"],
+            migrationsTableName: "migrations_typeorm",
+            migrationsRun: true,
+            cli: {
+                migrationsDir: "./src/migrations"
+            }
           }),
     ],
     // providers: [...databaseProviders],

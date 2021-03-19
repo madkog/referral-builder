@@ -31,8 +31,8 @@ services:
       - --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: example
-    #volumes: 
-      #- ./init.sql:/data/application/init.sql
+    volumes: 
+      - ./init_db.sh:/data/application/init_db.sh
       # - "./mysql:/var/lib/mysql"
       #- "./init.sql:/docker-entrypoint-initdb.d"
     ports:
