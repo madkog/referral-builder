@@ -19,7 +19,7 @@ export class UpdateReferralDto extends PartialType(CreateReferralDto) {
 
     @IsNotEmpty()
     @MinLength(3)
-    @MaxLength(50)
+    @MaxLength(25)
     phone: string;
 
     @IsNotEmpty()
@@ -39,20 +39,19 @@ export class UpdateReferralDto extends PartialType(CreateReferralDto) {
 
     @IsNotEmpty()
     @MinLength(3)
-    @MaxLength(10)
+    @MaxLength(28)
     state: string;
 
     @IsNotEmpty()
-    @IsInt()
-    postcode: number;
+    @MinLength(4)
+    @MaxLength(4)
+    postcode: string;
 
     @IsNotEmpty()
     @MinLength(3)
     @MaxLength(20)
     country: string;
 
-    @MinLength(3)
     @MaxLength(20)
     avatar: string;
-
 }

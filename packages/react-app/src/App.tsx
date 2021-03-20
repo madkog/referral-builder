@@ -2,10 +2,17 @@ import React, { useState } from 'react';
 import './App.css';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from "yup"
+import * as yup from "yup";
+import axios from "axios";
+
+const instance = axios.create({
+  baseURL: 'http://localhost:3001/',
+  timeout: 1000,
+  headers: {'Cache-Control': 'no-cache'}
+});
 
 const Schema = yup.object().shape({
-  givenname: yup
+  givenName: yup
     .string()
     .required()
     .required('GIVEN NAME is a required field')
@@ -25,7 +32,7 @@ const Schema = yup.object().shape({
     .required('PHONE is a required field')
     .min(3, 'PHONE must be at least 3 numbers')
     .max(25, 'PHONE NAME must be at most 20 numbers'),
-  homename: yup
+  homeName: yup
     .string()
     .required('HOME NAME OR # is a required field')
     .min(1, 'HOME NAME OR # must be at least 3 characters')
@@ -48,7 +55,7 @@ const Schema = yup.object().shape({
   postcode: yup
     .string()
     .required('POSTCODE is a required field')
-    .length(5, 'POSTCODE must of length 4.'),
+    .length(4, 'POSTCODE must of length 4.'),
   country: yup
     .string()
     .required('COUNTRY is a required field')
@@ -63,7 +70,31 @@ function App() {
   });
 
   const onSubmit = (data: any) => {
-    console.log(data);
+    // console.log(data);
+
+    instance.post('/referrals', data)
+    .then(function (response) {
+        // handle success
+        console.log(response);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    });
+
+    // instance.get('/referrals')
+    // .then(function (response) {
+    //   // handle success
+    //   console.log(response);
+    // })
+    // .catch(function (error) {
+    //   // handle error
+    //   console.log(error);
+    // })
+    // .then(function () {
+    //   // always executed
+    // });
+
   };
 
   console.log(errors)
@@ -74,8 +105,8 @@ function App() {
         <h1>Referral Builder</h1>
         <form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
           <label>GIVEN NAME</label>
-          <input type="text" name="givenname" ref={register} />
-          {errors.givenname && <p>{errors.givenname.message}</p>}
+          <input type="text" name="givenName" ref={register} />
+          {errors.givenName && <p>{errors.givenName.message}</p>}
 
           <label>SURNAME</label>
           <input type="text" name="surname" ref={register} />
@@ -90,8 +121,8 @@ function App() {
           {errors.phone && <p>{errors.phone.message}</p>}
 
           <label>HOME NAME OR #</label>
-          <input type="text" name="homename" ref={register} />
-          {errors.homename && <p>{errors.homename.message}</p>}
+          <input type="text" name="homeName" ref={register} />
+          {errors.homeName && <p>{errors.homeName.message}</p>}
 
           <label>STREET</label>
           <input type="text" name="street" ref={register} />
@@ -112,6 +143,9 @@ function App() {
           <label>COUNTRY</label>
           <input type="text" name="country" ref={register} />
           {errors.country && <p>{errors.country.message}</p>}
+
+          <input type="hidden" name="avatar" value="" ref={register} />
+          {errors.avatar && <p>{errors.avatar.message}</p>}
 
           <button type="button">Upload Avatar</button>
 

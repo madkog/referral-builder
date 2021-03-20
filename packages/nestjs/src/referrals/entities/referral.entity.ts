@@ -31,8 +31,8 @@ export class Referral {
   @Column({ type: 'varchar', length: 10 })
   state: string;
 
-  @Column({ type: 'int' })
-  postcode: number;
+  @Column({ type: 'varchar', length: 4 })
+  postcode: string;
 
   @Column({ type: 'varchar', length: 300 })
   country: string;

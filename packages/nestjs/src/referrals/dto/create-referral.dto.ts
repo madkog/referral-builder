@@ -1,4 +1,5 @@
-import { IsEmail, IsNotEmpty, IsInt, MinLength, MaxLength } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsInt, MinLength, MaxLength, IsEmpty } from 'class-validator';
+import { IsNull } from 'typeorm';
 
 export class CreateReferralDto {
     @IsNotEmpty()
@@ -41,15 +42,15 @@ export class CreateReferralDto {
     state: string;
 
     @IsNotEmpty()
-    @IsInt()
-    postcode: number;
+    @MinLength(4)
+    @MaxLength(4)
+    postcode: string;
 
     @IsNotEmpty()
     @MinLength(3)
     @MaxLength(20)
     country: string;
 
-    @MinLength(3)
     @MaxLength(20)
     avatar: string;
 }
