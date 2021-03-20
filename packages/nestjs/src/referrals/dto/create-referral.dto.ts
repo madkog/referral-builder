@@ -17,7 +17,7 @@ export class CreateReferralDto {
 
     @IsNotEmpty()
     @MinLength(3)
-    @MaxLength(50)
+    @MaxLength(25)
     phone: string;
 
     @IsNotEmpty()
@@ -37,7 +37,7 @@ export class CreateReferralDto {
 
     @IsNotEmpty()
     @MinLength(3)
-    @MaxLength(10)
+    @MaxLength(28)
     state: string;
 
     @IsNotEmpty()
