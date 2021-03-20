@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
-import './App.css';
+
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import axios from "axios";
+
+import { Container } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 const instance = axios.create({
   baseURL: 'http://localhost:3001/',
@@ -81,82 +90,111 @@ function App() {
       // handle error
       console.log(error);
     });
-
-    // instance.get('/referrals')
-    // .then(function (response) {
-    //   // handle success
-    //   console.log(response);
-    // })
-    // .catch(function (error) {
-    //   // handle error
-    //   console.log(error);
-    // })
-    // .then(function () {
-    //   // always executed
-    // });
-
   };
+
+  instance.get('/referrals')
+    .then(function (response) {
+      // handle success
+      console.log(response);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+    });
 
   console.log(errors)
 
   return (
-    <div>
-      <div>
-        <h1>Referral Builder</h1>
-        <form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
-          <label>GIVEN NAME</label>
-          <input type="text" name="givenName" ref={register} />
-          {errors.givenName && <p>{errors.givenName.message}</p>}
+      <Container fluid>
+      <Row>
+        <Col>
+          <div className="pannel">
+          <h1>Referral Builder</h1>
+          <form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
+          <Row>
+            <Col>
+              <label>GIVEN NAME</label>
+              <input type="text" name="givenName" ref={register} />
+              {errors.givenName && <p>{errors.givenName.message}</p>}
+            </Col>
+            <Col>
+              <label>SURNAME</label>
+              <input type="text" name="surname" ref={register} />
+              {errors.surname && <p>{errors.surname.message}</p>}
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <label>EMAIL</label>
+              <input type="text" name="email" ref={register} />
+              {errors.email && <p>{errors.email.message}</p>}
+            </Col>
+            <Col>
+            <label>PHONE</label>
+            <input type="text" name="phone" ref={register} />
+            {errors.phone && <p>{errors.phone.message}</p>}
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <label>HOME NAME OR #</label>
+              <input type="text" name="homeName" ref={register} />
+              {errors.homeName && <p>{errors.homeName.message}</p>}
+            </Col>
+            <Col>
+              <label>STREET</label>
+              <input type="text" name="street" ref={register} />
+              {errors.street && <p>{errors.street.message}</p>}
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <label>SUBURB</label>
+              <input type="text" name="suburb" ref={register} />
+              {errors.suburb && <p>{errors.suburb.message}</p>}
+            </Col>
+            <Col>
+              <label>STATE</label>
+              <input type="text" name="state" ref={register} />
+              {errors.state && <p>{errors.state.message}</p>}
+            </Col>  
+          </Row>
+          <Row>
+            <Col>
+              <label>POSTCODE</label>
+              <input type="text" name="postcode" ref={register} />
+              {errors.postcode && <p>{errors.postcode.message}</p>}
+            </Col> 
+            <Col>
+              <label>COUNTRY</label>
+              <input type="text" name="country" ref={register} />
+              {errors.country && <p>{errors.country.message}</p>}
+            </Col>   
+          </Row>
+          <Row className="row-btn">
+            <Col>
+              <input type="hidden" name="avatar" value="" ref={register} />
+              {errors.avatar && <p>{errors.avatar.message}</p>}
 
-          <label>SURNAME</label>
-          <input type="text" name="surname" ref={register} />
-          {errors.surname && <p>{errors.surname.message}</p>}
-
-          <label>EMAIL</label>
-          <input type="text" name="email" ref={register} />
-          {errors.email && <p>{errors.email.message}</p>}
-
-          <label>PHONE</label>
-          <input type="text" name="phone" ref={register} />
-          {errors.phone && <p>{errors.phone.message}</p>}
-
-          <label>HOME NAME OR #</label>
-          <input type="text" name="homeName" ref={register} />
-          {errors.homeName && <p>{errors.homeName.message}</p>}
-
-          <label>STREET</label>
-          <input type="text" name="street" ref={register} />
-          {errors.street && <p>{errors.street.message}</p>}
-
-          <label>SUBURB</label>
-          <input type="text" name="suburb" ref={register} />
-          {errors.suburb && <p>{errors.suburb.message}</p>}
-
-          <label>STATE</label>
-          <input type="text" name="state" ref={register} />
-          {errors.state && <p>{errors.state.message}</p>}
-
-          <label>POSTCODE</label>
-          <input type="text" name="postcode" ref={register} />
-          {errors.postcode && <p>{errors.postcode.message}</p>}
-
-          <label>COUNTRY</label>
-          <input type="text" name="country" ref={register} />
-          {errors.country && <p>{errors.country.message}</p>}
-
-          <input type="hidden" name="avatar" value="" ref={register} />
-          {errors.avatar && <p>{errors.avatar.message}</p>}
-
-          <button type="button">Upload Avatar</button>
-
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-      <div>
-        <h1>Listing</h1>
-        
-      </div>
-    </div>
+              <Button className="btn-block" type="button">Upload Avatar</Button>
+            </Col>
+            <Col>
+              <Button className="btn-block btn-green" type="submit">Submit</Button>
+            </Col>    
+          </Row>  
+          </form>
+          </div>
+        </Col >
+        <Col>
+          <div className="pannel">
+            <h1>Listing</h1>
+          </div>
+        </Col>
+        </Row>
+      </Container>
   );
 }
 
