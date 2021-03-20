@@ -10,9 +10,12 @@ import { Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 
+//import { useTable } from 'react-table';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+
+import ReferrerTable from './components/ReferrerTable';
 
 const instance = axios.create({
   baseURL: 'http://localhost:3001/',
@@ -191,6 +194,7 @@ function App() {
         <Col>
           <div className="pannel">
             <h1>Listing</h1>
+            <ReferrerTable />
           </div>
         </Col>
         </Row>
