@@ -1,10 +1,12 @@
 body {
   margin: 0 auto;
+  color: #a8a8a8;
 }
 
 h1 {
   font-weight: 300;
   text-align: left;
+  color: black;
 }
 
 span > label {
@@ -49,6 +51,22 @@ p {
 
 .pannel {
   padding: 50px;
+}
+
+.pannel table {
+  color: #a8a8a8;
+}
+
+.pannel table tr:first-child {
+  display: none;
+}
+
+.pannel fieldset legend {
+  margin-top: 30px;
+  border-bottom: thin solid #a8a8a8;
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .row-btn {

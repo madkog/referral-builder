@@ -11,7 +11,6 @@ import ReferrerTable from './components/ReferrerTable';
 import ReferrerForm from './components/ReferrerForm';
 
 import { Referrer } from "./types/Referrer";
-
 import { apiGetReferrers, apiCreateReferrer } from "./services/referrerService";
 
 const App = () => {

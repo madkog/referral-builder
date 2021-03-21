@@ -12,23 +12,23 @@ const ReferrerTable = (props:any) => {
             Header: 'Listing',
             columns: [
                 {
-                    Header: 'Given Name',
+                    Header: 'GIVEN NAME',
                     accessor: 'givenName',
                 },
                 {
-                    Header: 'Surname',
+                    Header: 'SURNAME',
                     accessor: 'surname',
                 },
                 {
-                    Header: 'Email',
+                    Header: 'EMAIL',
                     accessor: 'email',
                 },
                 {
-                    Header: 'Phone',
+                    Header: 'PHONE',
                     accessor: 'phone',
                 },
                 {
-                    Header: 'Actions',
+                    Header: 'ACTIONS',
                     accessor: 'actions',
                 },
             ],
