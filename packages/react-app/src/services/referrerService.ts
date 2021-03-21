@@ -8,8 +8,8 @@ const instance = axios.create({
     headers: {'Cache-Control': 'no-cache','Access-Control-Allow-Origin': '*'}
  });
 
-export function apiCreateReferrer(data: Referrer) {
-    instance.post('/referrals', data)
+export async function apiCreateReferrer(data: Referrer) {
+    await instance.post('/referrals', data)
     .then(function (response) {
         // handle success
         console.log(response);
