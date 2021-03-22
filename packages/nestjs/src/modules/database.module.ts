@@ -6,11 +6,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     imports: [
         TypeOrmModule.forRoot({
             type: 'mysql',
-            host: process.env.MYSQLHOST,
-            port: parseInt(process.env.MYSQLPORT),
-            username: process.env.MYSQLUSER,
-            password: process.env.MYSQLPASSWORD,
-            database: process.env.MYSQLDATABASE,
+            host: process.env.TYPEORM_HOST,
+            port: parseInt(process.env.TYPEORM_PORT),
+            username: process.env.TYPEORM_USERNAME,
+            password: process.env.TYPEORM_PASSWORD,
+            database: process.env.TYPEORM_DATABASE,
             synchronize: true,
             autoLoadEntities: true,
             migrations: ["./src/migrations/*{.ts,.js}"],
@@ -21,7 +21,5 @@ import { TypeOrmModule } from '@nestjs/typeorm';
             }
           }),
     ],
-    // providers: [...databaseProviders],
-    // exports: [...databaseProviders],
 })
 export class DatabaseModule {}
