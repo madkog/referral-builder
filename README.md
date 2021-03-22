@@ -50,9 +50,9 @@ I used NestJs base functionality to create the scafolding for the REST API.
 
 I used a few plugins to help with Database and data management
 
-"@nestjs/typeorm": "^7.1.5",
-"class-transformer": "^0.4.0",
-"class-validator": "^0.13.1",
+- "@nestjs/typeorm": "^7.1.5",
+- "class-transformer": "^0.4.0",
+- "class-validator": "^0.13.1",
 
 Issues 
 - Could not use migrations due to unknown compilation issue, skipped due to time
@@ -62,9 +62,9 @@ I created everything in a standard way using DTO's and modules. Note: I did not 
 
 ## 4) front end (base form construction - no components) 1.5 hours
 
- npm i --save react-hook-form
- npm i --save yup
- npm i --save @hookform/resolvers
+ - npm i --save react-hook-form
+ - npm i --save yup
+ - npm i --save @hookform/resolvers
 
 Looked for good form libraries as I have not done this before:
 
@@ -82,7 +82,7 @@ Decided to use Axios as I have used that before.
 
 Created this as a service.
 
-npm i --save axios
+- npm i --save axios
 
 https://github.com/axios/axios#axios-api
 
@@ -98,8 +98,8 @@ Note: this converts bootstrap into components.
 
 I did the layout for the form
 
-npm install --save react-bootstrap bootstrap
-https://react-bootstrap.netlify.app/getting-started/introduction
+- npm install --save react-bootstrap bootstrap
+- https://react-bootstrap.netlify.app/getting-started/introduction
 
 Issues 
 - Not to bad but syntax a little weird for plugin.
@@ -108,9 +108,9 @@ Issues
 
 I then created a table using react-table. This is quite bad as a plugin. Hard and fidley to use. 
 
-npm install react-table --save
-npm install --save-dev @types/react-table
-npm install --save typescript @types/node @types/react @types/react-dom @types/jest
+- npm install react-table --save
+- npm install --save-dev @types/react-table
+- npm install --save typescript @types/node @types/react @types/react-dom @types/jest
 
 Issues 
 - Had to hide table header by css due to bad plugin design.
@@ -131,7 +131,7 @@ Adding styling to make it look similar to the requirements.
 
 Removing everything that was not used in the end. 
 
-Time to complete = 7.5 hours.
+## Time to complete = 7.5 hours.
 
 
 
