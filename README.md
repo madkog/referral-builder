@@ -11,7 +11,7 @@ docker-compose up --build
 
 ## current features complete
 
-- Crud of Referrer in API
+- Crud of Referrer in nest js API.
 - Create Referrer from front end.
 - Refreshing state of created data. 
 - Layout
@@ -23,7 +23,7 @@ Due to the time I promised to deliver I have missing out of the following:
 
 - Unit tests.
 - Action icon with events.
-- migrations of data into the a new Database.
+- Migrations of data into the a new Database.
 
 ## 1) Decide on what to use to build the app.
    
@@ -42,7 +42,7 @@ https://docs.nestjs.com/
 
 Issues - Could not create DB in docker due multistep issue. Had to use base db due to time.
 
-## 3) Setting up the backend. (2 hours)
+## 3) Setting up the complete backend. (2 hours)
 
 I decided to setup the backend in Nest Js as it is very similar to php styled frameworks. 
 
