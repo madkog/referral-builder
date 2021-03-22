@@ -9,6 +9,18 @@ Docker environment
 
 docker-compose up --build
 
+frontend: 
+http://localhost:3000/
+
+backend:
+http://localhost:3001/
+
+1) fill in the form data.
+2) press submit.
+
+NOTE: THere is an issue with my event handler as I ran out out time to fix. 
+       You will have to submit the form record twice initially. 
+
 ## current features complete
 
 - Crud of Referrer in nest js API.
